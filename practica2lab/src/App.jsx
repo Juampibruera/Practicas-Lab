@@ -1,23 +1,18 @@
-import Table from './Table';
+import React from 'react';
+import Table from "./components/table/Table"
 
-const netIncomes = [
-    { brand: 'McDonalds', income: 1291283 },
-    { brand: 'Burger King', income: 1927361 },
-    { brand: 'KFC', income: 1098463 }
-];
+function MyApp() {
+  const ingresosNetos = [
+    {marca: "McDonalds", ingreso: 1291283}, 
+    {marca: "Burger King", ingreso: 1927361}, 
+    {marca: "KFC", ingreso: 1098463}
+  ];
 
-const totalIncome = netIncomes.reduce((acc, curr) => acc + curr.income, 0);
-const averageIncome = totalIncome / netIncomes.length;
-
-const App = () => {
-    return (
-        <div>
-            <h1>Tabla de Ingresos Netos por Marca</h1>
-            <Table netIncomes={netIncomes} />
-            <p>Promedio de ingreso neto: {averageIncome}</p>
-        </div>
-    );
+  return (
+    <div>
+      <Table ingresosNetos={ingresosNetos} />
+    </div>
+  );
 }
 
-export default App;
-
+export default MyApp;
