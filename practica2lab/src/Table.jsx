@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const MyTable = ({ingresosNetos}) => {
-    const totalIngreso = ingresosNetos.reduce((sum, item) => sum + item.ingreso, 0);
-    const promedioIngreso = (totalIngreso/ingresosNetos.length).toFixed(2);
+const Table = ({netIncomes}) => {
+    const totalIncome = netIncomes.reduce((sum, item) => sum + item.income, 0);
+    const averageIncome = (totalIncome/netIncomes.length).toFixed(2);
     return (
         <>
         <table>
@@ -14,21 +14,21 @@ const MyTable = ({ingresosNetos}) => {
                 </tr>
             </thead>
             <tbody>
-                {ingresosNetos.map((branch,index)=> (
+                {netIncomes.map((branch,index)=> (
                     <tr key={index}>
-                        <td>{branch.marca}</td>
-                        <td>{branch.ingreso}</td>
+                        <td>{branch.brand}</td>
+                        <td>{branch.income}</td>
                     </tr>
                 ))}
             </tbody>
         </table>
-        <p>El promedio de ingresos de las marcas es: {promedioIngreso}</p>
+        <p>El promedio de ingresos de las marcas es: {averageIncome}</p>
         </>
     );
 }
         
-MyTable.propTypes = {
-    ingresosNetos: PropTypes.array
+Table.propTypes = {
+    netIncomes: PropTypes.array
 };
 
-export default MyTable;
+export default Table;
